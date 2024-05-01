@@ -44,8 +44,14 @@ function App() {
           ballPivot for identifying the first point reached during pivoting,
           findSeedTriangle for initiating a new front if remaining vertices
           exist, and join and glue for modifying boundary edge topology. We will
-          discuess these one by one.
+          discuss these one by one.
         </p>
+
+        <img
+          src={BP}
+          alt='Ball Pivot Illustration'
+          style={{ display: 'block', margin: '20px auto' }}
+        />
         <p>
           {' '}
           Firstly, we use the findSeedTriangle function to find a place to
@@ -107,12 +113,9 @@ function App() {
           a large waste of time to do searches across the entire point cloud,
           when each step is only a local operation.{' '}
         </p>
-
-        <img
-          src={BP}
-          alt='Ball Pivot Illustration'
-          style={{ display: 'block', margin: '20px auto' }}
-        />
+      
+        <br/>
+        
         <p>
           On the other hand, Poisson surface reconstruction leverages the
           principles of implicit surface modeling to generate a smooth and
@@ -187,7 +190,7 @@ function App() {
         <p>
           One important lesson we learned was to devote more time towards
           planning out the development process before diving straight in to
-          coding the project. Given that we had done this, we would have likely
+          coding. Given that we had done this, we would have likely
           opted to first create a point cloud visualization first, seeing as we
           could use that for the next step in the development process. Instead,
           we went first for the interesting, fun part of the project, ultimately
@@ -202,64 +205,72 @@ function App() {
       </Section>
       <Section title='Results'>
         <p>
-          The accompanying point cloud viewer demo showcases visualization
-          capabilities, providing insights into the mesh reconstruction process
-          as well as, animations, and videos of the system are also included.
-        </p>
-        {/* <video src{vid1} alt="Vid" width = '1000' height = '100'/> */}
-
-        <p>
           {' '}
-          Here is a comparison between an mesh, and the reconstructed mesh
+          Below is a comparison between an existing mesh, and the reconstructed mesh
           obtained by running the algorithm on just the vertices of the original
           mesh:
         </p>
-        <div>
-          <div className='image-container'>
-            <img
-              src={beanOG}
-              alt='Poisson reconstruction Illustration'
-              title='Original'
-              width='40%'
-              height='40%'
-              style={{ display: 'block', margin: '20px auto' }}
-            />
-            <div className='tooltip'>original</div>
-          </div>
-          <div className='image-container'>
-            <img
-              src={beanReconstructed}
-              alt='Poisson reconstruction Illustration'
-              title='Reconstructed'
-              width='40%'
-              height='40%'
-              style={{ display: 'block', margin: '20px auto' }}
-            />
-            <div className='tooltip'>reconstructed</div>
-          </div>
+        <div align='middle'>
+          <table>
+            <tr align="center">
+              <td>
+                <img
+                  src={beanOG}
+                  alt='Poisson reconstruction Illustration'
+                  title='Original'
+                  width='80%'
+                  height='80%'
+                />
+                <figcaption>Original</figcaption>
+              </td>
+              <td>
+                <img
+                  src={beanReconstructed}
+                  alt='Poisson reconstruction Illustration'
+                  title='Reconstructed'
+                  width='80%'
+                  height='80%'
+                />
+                <figcaption>Reconstructed</figcaption>
+              </td>
+            </tr>
+          </table>
         </div>
-        <br />
+        <br/>
+        <p>
+          There are in fact some noticable differences in our reconstructed mesh vs the original. In our mesh,
+          the diamonds are split into triangles by one on top and one on the bottom, whereas in the original
+          the diamonds are split left and right. Note, though, that one could get from one to the other by edge flip operations. 
+        </p>
         <div>
-          Here is the full demo (
+          Here is the full demo demonstrating the algorithm running on the bunny point cloud using various ball radii (
           <a href='https://www.youtube.com/watch?v=kvoJlMnLQ1I'>
             youtube.com/watch?v=kvoJlMnLQ1I
           </a>
           ):
         </div>
-        <iframe
-          width='1200'
-          height='900'
-          src='https://www.youtube.com/embed/kvoJlMnLQ1I?autoplay=1&loop=1&playlist=kvoJlMnLQ1I&controls=1'
-          title=''
-          frameborder='0'
-          allow='accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          allowfullscreen
-        ></iframe>
+        <div className='image-container'>
+          <iframe
+            width='1200'
+            height='900'
+            src='https://www.youtube.com/embed/kvoJlMnLQ1I?autoplay=1&loop=1&playlist=kvoJlMnLQ1I&controls=1'
+            title=''
+            frameborder='0'
+            allow='accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            allowfullscreen
+            style={{ display: 'block', margin: '20px auto' }}
+          ></iframe>
+        </div>
       </Section>
       <Section title='References'>
         <a href='http://mesh.brown.edu/taubin/pdfs/bernardini-etal-tvcg99.pdf'>
           {' '}
           The Ball-Pivoting Algorithm for Surface Reconstruction{' '}
+        </a>
+        <br></br>
+        <a href='https://www.researchgate.net/publication/325186192_A_Lightweight_Surface_Reconstruction_Method_for_Online_3D_Scanning_Point_Cloud_Data_Oriented_toward_3D_Printing'>
+          {' '}
+          Poisson Surface Reconstruction{' '}
         </a>
       </Section>
     </div>

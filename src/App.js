@@ -262,6 +262,21 @@ function App() {
           ></iframe>
         </div>
       </Section>
+      <Section title='Contributions'>
+        <ul>
+          <li>Jay Chiang worked on the visuals and UI elements, including: the point cloud vizualizer;
+            keybinds to run the algorithm or revert back to a point cloud; keybinds to change the ball radius;
+            and the preview visualization of the size of the ball.</li>
+          <li>
+            Atticus Cull worked on implementing the BPA algorithm itself.
+          </li>
+          <li>
+            Rohan Vaidya worked on the project milestone and final submission websites.
+          </li>
+        </ul>
+        
+
+      </Section>
       <Section title='References'>
         <a href='http://mesh.brown.edu/taubin/pdfs/bernardini-etal-tvcg99.pdf'>
           {' '}

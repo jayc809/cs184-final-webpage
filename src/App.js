@@ -238,6 +238,23 @@ function App() {
             <div className='tooltip'>reconstructed</div>
           </div>
         </div>
+        <br />
+        <div>
+          Here is the full demo (
+          <a href='https://www.youtube.com/watch?v=kvoJlMnLQ1I'>
+            youtube.com/watch?v=kvoJlMnLQ1I
+          </a>
+          ):
+        </div>
+        <iframe
+          width='1200'
+          height='900'
+          src='https://www.youtube.com/embed/kvoJlMnLQ1I?autoplay=1&loop=1&playlist=kvoJlMnLQ1I&controls=1'
+          title=''
+          frameborder='0'
+          allow='accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          allowfullscreen
+        ></iframe>
       </Section>
       <Section title='References'>
         <a href='http://mesh.brown.edu/taubin/pdfs/bernardini-etal-tvcg99.pdf'>

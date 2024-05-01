@@ -3,6 +3,17 @@ import React from 'react';
 import Header from './Header';
 import Section from './Section';
 import IMAGES from './images/index1.js';
+import cow1 from './images/cow1.png';
+import cow2 from './images/cow2.png';
+import ball1 from './images/ball1.png';
+import ball2 from './images/ball2.png';
+import teapot1 from './images/teapot1.png';
+import teapot2 from './images/teapot2.png';
+import dragon from './images/dragon.png';
+import weird from './images/weird.png';
+import bunny from './images/bunny.png';
+import drill from './images/drill.png';
+import buddha from './images/buddha.png';
 import BP from './images/Ball Pivot.png';
 import Fish from './images/Poisson.png';
 import beanOG from './images/beanOriginal.png';
@@ -44,8 +55,14 @@ function App() {
           ballPivot for identifying the first point reached during pivoting,
           findSeedTriangle for initiating a new front if remaining vertices
           exist, and join and glue for modifying boundary edge topology. We will
-          discuess these one by one.
+          discuss these one by one.
         </p>
+
+        <img
+          src={BP}
+          alt='Ball Pivot Illustration'
+          style={{ display: 'block', margin: '20px auto' }}
+        />
         <p>
           {' '}
           Firstly, we use the findSeedTriangle function to find a place to
@@ -108,11 +125,8 @@ function App() {
           when each step is only a local operation.{' '}
         </p>
 
-        <img
-          src={BP}
-          alt='Ball Pivot Illustration'
-          style={{ display: 'block', margin: '20px auto' }}
-        />
+        <br />
+
         <p>
           On the other hand, Poisson surface reconstruction leverages the
           principles of implicit surface modeling to generate a smooth and
@@ -187,11 +201,11 @@ function App() {
         <p>
           One important lesson we learned was to devote more time towards
           planning out the development process before diving straight in to
-          coding the project. Given that we had done this, we would have likely
-          opted to first create a point cloud visualization first, seeing as we
-          could use that for the next step in the development process. Instead,
-          we went first for the interesting, fun part of the project, ultimately
-          leading to a longer and more arduous project experience.
+          coding. Given that we had done this, we would have likely opted to
+          first create a point cloud visualization first, seeing as we could use
+          that for the next step in the development process. Instead, we went
+          first for the interesting, fun part of the project, ultimately leading
+          to a longer and more arduous project experience.
         </p>
 
         <p>
@@ -202,41 +216,36 @@ function App() {
       </Section>
       <Section title='Results'>
         <p>
-          The accompanying point cloud viewer demo showcases visualization
-          capabilities, providing insights into the mesh reconstruction process
-          as well as, animations, and videos of the system are also included.
-        </p>
-        {/* <video src{vid1} alt="Vid" width = '1000' height = '100'/> */}
-
-        <p>
           {' '}
-          Here is a comparison between an mesh, and the reconstructed mesh
-          obtained by running the algorithm on just the vertices of the original
-          mesh:
+          Below is a comparison between an existing mesh, and the reconstructed
+          mesh obtained by running the algorithm on just the vertices of the
+          original mesh:
         </p>
-        <div>
-          <div className='image-container'>
-            <img
-              src={beanOG}
-              alt='Poisson reconstruction Illustration'
-              title='Original'
-              width='40%'
-              height='40%'
-              style={{ display: 'block', margin: '20px auto' }}
-            />
-            <div className='tooltip'>original</div>
-          </div>
-          <div className='image-container'>
-            <img
-              src={beanReconstructed}
-              alt='Poisson reconstruction Illustration'
-              title='Reconstructed'
-              width='40%'
-              height='40%'
-              style={{ display: 'block', margin: '20px auto' }}
-            />
-            <div className='tooltip'>reconstructed</div>
-          </div>
+        <div align='middle'>
+          <table>
+            <tr align='center'>
+              <td>
+                <img
+                  src={beanOG}
+                  alt='Poisson reconstruction Illustration'
+                  title='Original'
+                  width='80%'
+                  height='80%'
+                />
+                <figcaption>Original</figcaption>
+              </td>
+              <td>
+                <img
+                  src={beanReconstructed}
+                  alt='Poisson reconstruction Illustration'
+                  title='Reconstructed'
+                  width='80%'
+                  height='80%'
+                />
+                <figcaption>Reconstructed</figcaption>
+              </td>
+            </tr>
+          </table>
         </div>
         <br />
         <div
@@ -247,13 +256,22 @@ function App() {
             alignItems: 'center',
           }}
         >
+          <p>
+            There are in fact some noticable differences in our reconstructed
+            mesh vs the original. In our mesh, the diamonds are split into
+            triangles by one on top and one on the bottom, whereas in the
+            original the diamonds are split left and right. Note, though, that
+            one could get from one to the other by edge flip operations.
+          </p>
           <div>
-            Here is the full demo (
+            Here is the full demo demonstrating the algorithm running on the
+            bunny point cloud using various ball radii (
             <a href='https://www.youtube.com/watch?v=kvoJlMnLQ1I'>
               youtube.com/watch?v=kvoJlMnLQ1I
             </a>
             ):
           </div>
+          <br />
           <iframe
             width='800'
             height='600'
@@ -264,15 +282,75 @@ function App() {
             allowfullscreen
           ></iframe>
           <br />
-          <br />
           <div>And here are some more examples:</div>
-          <div style={{ display: 'flex' }}></div>
+          <br />
+          <div style={{ display: 'flex', gap: 20 }}>
+            <img src={ball1} style={{ width: 400, height: 300 }} />
+            <img src={cow1} style={{ width: 400, height: 300 }} />
+          </div>
+          <br />
+          <div style={{ display: 'flex', gap: 20 }}>
+            <img src={dragon} style={{ width: 400, height: 300 }} />
+            <img src={buddha} style={{ width: 400, height: 300 }} />
+          </div>
+          <br />
+          <div style={{ display: 'flex', gap: 20 }}>
+            <img src={bunny} style={{ width: 400, height: 300 }} />
+            <img src={drill} style={{ width: 400, height: 300 }} />
+          </div>
+          <br />
+          <div style={{ display: 'flex', gap: 20 }}></div>
+          <br />
+          <div>
+            However, we can also see the case when the algorithm does not work
+            very well, such as the teapot example below. The poor quality is
+            likely due to the fact that the point cloud of the model is not very
+            uniformly distributed, as we can see that the top handle part of the
+            teapot is very dense while the body is very sparsed. As a result, it
+            is difficult to choose a ball radius that can both capture the small
+            details and bridge between greater distances between points.
+          </div>
+          <br />
+          <div style={{ display: 'flex', gap: 20 }}>
+            <img src={teapot2} style={{ width: 400, height: 300 }} />
+            <img src={teapot1} style={{ width: 400, height: 300 }} />
+          </div>
         </div>
+      </Section>
+      <Section title='Contributions'>
+        <ul>
+          <li>
+            Atticus Cull worked on implementing the BPA algorithm in its
+            entirety, including the initial outline and structure for the
+            algorithm, speed optimizations, and bug fixing.
+          </li>
+          <li>
+            Jay Chiang worked on wireframing the codebase and writing the .DAE
+            and .PLY parsers, point cloud and ball UI vizualizer, keybinds to
+            execute the algorithm in both directions (point cloud {'<->'} mesh),
+            as well as keybinds to adjust the ball radius both by value and
+            incrementally.
+          </li>
+          <li>
+            Rohan Vaidya worked on conducting background research into potential
+            methods, as well and designing and creating the presentation as well
+            as the submission websites.
+          </li>
+          <li>
+            Justin Lim worked on initial project setup, communications, and
+            logistics.
+          </li>
+        </ul>
       </Section>
       <Section title='References'>
         <a href='http://mesh.brown.edu/taubin/pdfs/bernardini-etal-tvcg99.pdf'>
           {' '}
           The Ball-Pivoting Algorithm for Surface Reconstruction{' '}
+        </a>
+        <br></br>
+        <a href='https://www.researchgate.net/publication/325186192_A_Lightweight_Surface_Reconstruction_Method_for_Online_3D_Scanning_Point_Cloud_Data_Oriented_toward_3D_Printing'>
+          {' '}
+          Poisson Surface Reconstruction{' '}
         </a>
       </Section>
     </div>
